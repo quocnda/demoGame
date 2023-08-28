@@ -6,7 +6,7 @@ import { Navigate } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
-  const {account} = useGlobalContext();
+  const {account,socket} = useGlobalContext();
   const navigate = useNavigate();
   const [playerName,setPlayerName] = useState('')
   const handleOnClickLogin = () => {
@@ -16,6 +16,7 @@ const Home = () => {
       )
     }
     else {
+      socket.emit("set_name_player",playerName)
       navigate('/menu')
     }
   }

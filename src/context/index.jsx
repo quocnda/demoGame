@@ -1,8 +1,10 @@
 import React, { createContext, useContext, useEffect, useRef, useState } from "react";
 import { ethers } from 'ethers';
 import { useNavigate } from "react-router-dom";
+import { io } from "socket.io-client";
 import {contract_address_Coin,contract_address_Market,contract_address_NFT,Contract_ABI_Market,Contract_ABI_NFT,Contract_Coin_ABI} from '../constant/constant'
 const GlobalContext = createContext();
+const socket = io("https://server-test-online.onrender.com")
 export const GlobalContextProvider = ({ children }) => {
     const [provider_of_coin,setprovider_of_coin] =useState(null)
     const [provider,setprovider] =useState(null)
@@ -14,6 +16,7 @@ export const GlobalContextProvider = ({ children }) => {
     const [items_of_sold,setitem_of_sold] = useState(null)
     const [account,setaccount] = useState(null)
     const [balance_,setbalance_] = useState(0)
+    const[sum_room1,setsum_room] = useState(null)
     const LoadDataContract = async ()=> {
    
         const items_of_sold = []
@@ -93,10 +96,20 @@ export const GlobalContextProvider = ({ children }) => {
     const aler = () => {
         alert("Please install metamask")
     }
+    const LoadRoom = () => {
+        
+        console.log("da vao day tu join battle")
+        socket.emit("joinbattle")
+        socket.on("sum_room" , (map) => {
+            const new_map = new Map(map)
+            setsum_room(new_map)
+        })
+       
+    }
      useEffect(() => {
         updateCurrentAccount();
         LoadDataContract();
-        
+        LoadRoom();
         if (window.ethereum) {
           window.ethereum.on('accountsChanged', handleAccountsChanged);
         }
@@ -109,7 +122,7 @@ export const GlobalContextProvider = ({ children }) => {
       }, [])
     return (
         <GlobalContext.Provider value={{
-           provider_of_coin,account,contract_of_coin,provider,setaccount,contract_of_nft,provider_of_nft,items_of_sold,items,contract_from_market,balance_
+           provider_of_coin,account,contract_of_coin,provider,setaccount,contract_of_nft,provider_of_nft,items_of_sold,items,contract_from_market,balance_,socket,sum_room1
 
         }}>
             {children}           

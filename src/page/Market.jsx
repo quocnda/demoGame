@@ -31,7 +31,7 @@ const Market = () =>{
         }
         else {
           const item = items[item_.itemId - 1]
-          console.log(item)
+          
           setitem_from_nft(item)
         }
         setitem(item_)
