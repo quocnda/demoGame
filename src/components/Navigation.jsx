@@ -37,7 +37,6 @@ const Navigation = ({ account,contract_of_coin,provider_of_coin,setaccount,contr
     const changeBlance = async() => {
         const balance_ = await contract_of_coin.balanceOf(account)
         console.log(account)
-        
         const balance_of_coi = parseInt(balance_._hex)
         setnumber_of_balance(balance_of_coi)
     }
@@ -47,10 +46,8 @@ const Navigation = ({ account,contract_of_coin,provider_of_coin,setaccount,contr
     const HandleButtonBalanceOf = () => {
         toggleBalanceOf ? settoggleBalanceOf(false) : settoggleBalanceOf(true)
         HanldeMyBalance()
-    
     }
     const HanldeMyBalance = async() => {
-      
         const items_user_count_image = []
         const items_user_count_amount = []
         for(let i = 1;i<=10;i++) {
@@ -64,7 +61,6 @@ const Navigation = ({ account,contract_of_coin,provider_of_coin,setaccount,contr
         }
         setitem_user_count_amount(items_user_count_amount)
         setitem_user_count_image(items_user_count_image)
-
     }
     useEffect(() => {
         changeBlance();
@@ -75,14 +71,12 @@ const Navigation = ({ account,contract_of_coin,provider_of_coin,setaccount,contr
        console.log("fa vao day man")
     },[account])
     return (
-        
         <nav>
             <div className='nav__displayHead'>
                     <div id='nav__brand'><h1>Game Character Market</h1></div>
                     {console.log("number balance ",number_of_balance)}
                     <div id='nav__coins'><a href='#Clothing and Jewelry'> {number_of_balance} Coins </a></div>
             </div>
-            
             <div className='nav__displaySecond'>
                 <div className='nav__search'><input type='text' placeholder='Search'/></div>  
                 <div className='nav__connect'>   

@@ -21,21 +21,16 @@ const Market = () =>{
     const [toggleofBalanceOf,settoggleBalanceOf] = useState(false)
     const [items_user_count_amount,setitem_user_count_amount] = useState([])
     const [items_user_count_image,setitem_user_count_image] = useState([])
-  
-
     const togglePop = (id) => {
-
         const item_ = items_of_sold[id]
         if (item_ == undefined) {
           console.log("da vao day")
         }
         else {
           const item = items[item_.itemId - 1]
-          
           setitem_from_nft(item)
         }
         setitem(item_)
-    
         toggle ? settoggle(false) : settoggle(true)
       }
       const togglePopItem = () => {

@@ -16,7 +16,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path='/create-battle' element={<CreateBattle />}></Route>
         <Route path='/market' element={<Market />}> </Route> 
         <Route path = '/join-battle' element = {<JoinBattle/>}>  </Route>
-        <Route path='/battle-round' element={<BattleRound/>}></Route>
+        <Route path='/battle-round/:battleName' element={<BattleRound/>}></Route>
       </Routes>
     </GlobalContextProvider>
     

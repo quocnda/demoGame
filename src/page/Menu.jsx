@@ -6,7 +6,7 @@ import styles from '../styles';
 
 const Menu = () => {
     const { account ,socket } = useGlobalContext();
-    const [name,setname] = useState("Quoc")
+    const [name,setname] = useState("")
     const navigate = useNavigate();
     const handleOnclickMarket = () => {
         navigate('/market')
@@ -24,8 +24,15 @@ const Menu = () => {
             setname(data)
         })
     },[socket])
+    const test = () => {
+        socket.emit("set_player_name_for_menu")
+        socket.on("server_send_name" , (data) => {
+            setname(data)
+        })
+    }
     return (
         <div>
+            {test()}
             <label htmlFor='name' className={styles.label}>Your Name: </label>
             {name}
             <br/>

@@ -1,36 +1,46 @@
 import React, { startTransition, useEffect, useState } from 'react';
-import { PageHOC } from '../components';
-
-
+import { PageHOC,GameLoad,ChooseCard} from '../components';
 import { useNavigate } from 'react-router-dom';
 import { useGlobalContext } from '../context';
 import styles from '../styles';
 
 const CreateBattle = () => {
-  var i =0;
-  const {socket}  =useGlobalContext();
+  const {socket,account,contract_of_nft,items_user_count_amount,items_user_count_image}  =useGlobalContext();
   const navigate = useNavigate();
   const [battlename,setbattlename] = useState("");
+  const [waitoppo, setwaitoppo] = useState(false);
+  const [bool_choose_card,setbool_choose_card] = useState(false)
+  const [choosed_card,setchoose_card] = useState([])
   const handleOnClickButton =() => {
     console.log(battlename)
-    socket.emit("create-battle" , battlename)
-    socket.on("room_datontai" , () => {
-      i++;
-      alert("Phong da ton tai, nhap ten phong khac man" , i)
-    })
+    setwaitoppo(true)
+    setbool_choose_card(true)
+    
   }
   const ListenTheBattle = () => {
     socket.on("battle_is_connect",(data) => {
-        console.log("da nghe dc event ")
-        console.log("Yes :" , data)
-        navigate('/battle-round')
+        navigate(`/battle-round/${data}`)
     })
 }
+  
 useEffect(() => {
   ListenTheBattle();
 })
   return (
     <>
+       { bool_choose_card ? (<ChooseCard
+        toggle = {bool_choose_card}
+        settoggle = {setbool_choose_card}
+        items_user_count_amount = {items_user_count_amount}
+        items_user_count_image = {items_user_count_image}
+        setwaitoppo = {setwaitoppo}
+        player  = {1}
+        choosed_card= {choosed_card}
+        setchoose_card={setchoose_card}
+        roomname = {battlename}
+        socket = {socket}
+
+       />) : (waitoppo && <GameLoad/>)}
       <div className='flex flex-col mb-5'>
         <label htmlFor='name' className={styles.label}> Battle Name</label>
         <input 

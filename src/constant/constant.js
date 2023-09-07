@@ -1,4 +1,4 @@
-const contract_address_NFT = "0xC0906241A58344513E9B438bfa8623340e4c3e90"
+const contract_address_NFT = "0x32f2D47d46C0b963350ce071e99a3c4B065Add0c"
 const Contract_ABI_NFT = [
 	{
 		"inputs": [],
@@ -190,10 +190,10 @@ const Contract_ABI_NFT = [
 		"type": "function"
 	}
 ]
-const contract_address_Market = "0x15fa37A88c512406031bec88Fea4A87Ea007f571"
+const contract_address_Market = "0x9025A850d154B80d31188f4E43bB115084e77107"
 const Contract_ABI_Market = [{"inputs":[{"internalType":"uint256","name":"_feePercent","type":"uint256"},{"internalType":"address","name":"NFT","type":"address"},{"internalType":"address","name":"a_coin","type":"address"}],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[],"name":"coin","outputs":[{"internalType":"contract ICOIN","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"feeAccount","outputs":[{"internalType":"address payable","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"feeGas","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"feePercent","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_itemId","type":"uint256"},{"internalType":"uint256","name":"amount_of_purchase","type":"uint256"}],"name":"getTotalPrice","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"itemCount","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"items","outputs":[{"internalType":"uint256","name":"itemId","type":"uint256"},{"internalType":"uint256","name":"price","type":"uint256"},{"internalType":"uint256","name":"amount","type":"uint256"},{"internalType":"address payable","name":"seller","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_tokenId","type":"uint256"},{"internalType":"uint256","name":"amount","type":"uint256"},{"internalType":"uint256","name":"_price","type":"uint256"}],"name":"makeItem","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"nft","outputs":[{"internalType":"contract INFT","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_itemId","type":"uint256"},{"internalType":"uint256","name":"amount_of_purchase","type":"uint256"}],"name":"purchaseItem","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"total_pric","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"}]
 
-const contract_address_Coin = "0xAEFAf71e6174EE1d80c8e0808241D8BC5793158a"
+const contract_address_Coin = "0xD92F4D89b66bE41eFE6A0462BF6E79909aC0f42E"
 const Contract_Coin_ABI = [
 	{
 		"inputs": [
@@ -335,6 +335,19 @@ const Contract_Coin_ABI = [
 	},
 	{
 		"inputs": [],
+		"name": "battle_count",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
 		"name": "deposit",
 		"outputs": [],
 		"stateMutability": "payable",
@@ -419,6 +432,24 @@ const Contract_Coin_ABI = [
 				"type": "bool"
 			}
 		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "winner",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "loser",
+				"type": "address"
+			}
+		],
+		"name": "transferCoinForWinner",
+		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
