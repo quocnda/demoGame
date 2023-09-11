@@ -99,7 +99,6 @@ const Navigation = ({ account,contract_of_coin,provider_of_coin,setaccount,contr
                     </button>
                 </div>
             </div>
-
             <div className='nav__links'>
             
                 <button id='nav__makeItem' type='button' onClick={HandleBUtttonMakeItem}>
