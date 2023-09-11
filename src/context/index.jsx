@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
 import {contract_address_Coin,contract_address_Market,contract_address_NFT,Contract_ABI_Market,Contract_ABI_NFT,Contract_Coin_ABI} from '../constant/constant'
 const GlobalContext = createContext();
-const socket = io("http://localhost:3000")
+const socket = io("https://gamedemonft.onrender.com")
 export const GlobalContextProvider = ({ children }) => {
 
   const [battleGround, setBattleGround] = useState('bg-astral');
