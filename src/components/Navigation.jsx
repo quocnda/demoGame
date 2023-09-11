@@ -3,6 +3,7 @@ import { ethers } from 'ethers';
 import { useEffect, useState, useSyncExternalStore } from 'react';
 import { useGlobalContext } from '../context';
 import { Contract_Coin_ABI,contract_address_Coin } from '../constant/constant';
+import styles from '../styles';
 const Navigation = ({ account,contract_of_coin,provider_of_coin,setaccount,contract_of_nft,provider_of_nft,toggle,settoggle,toggleBalanceOf,settoggleBalanceOf,setitem_user_count_amount,setitem_user_count_image }) => {
     const {balance_ } = useGlobalContext()
     console.log("balance_",balance_)
@@ -23,7 +24,9 @@ const Navigation = ({ account,contract_of_coin,provider_of_coin,setaccount,contr
         alert("Please install metamask")
     }
     const handleOnchange = async(e) => {
+        
         setnumber(e.target.value)
+        console.log("number la ",number)
     } 
     const handleOfDeposit = async() => {
         console.log(number)
@@ -32,7 +35,6 @@ const Navigation = ({ account,contract_of_coin,provider_of_coin,setaccount,contr
         const signer = provider.getSigner()
         const contract = new ethers.Contract(contract_address_Coin,Contract_Coin_ABI,signer)
         await contract.deposit({value: ethers.utils.parseUnits(number,"ether")})
-       
     }
     const changeBlance = async() => {
         const balance_ = await contract_of_coin.balanceOf(account)
@@ -91,7 +93,7 @@ const Navigation = ({ account,contract_of_coin,provider_of_coin,setaccount,contr
                             </button>
                         )
                     }
-                    <input type='number' id='nav__valueChange' value={number} onChange={handleOnchange}/> 
+                    <input type='number' className={styles.input} id='nav__valueChange' value={number} onChange={handleOnchange}/> 
                     <button type='button' className='nav__deposit' onClick={handleOfDeposit}>
                         Deposit
                     </button>

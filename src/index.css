@@ -535,25 +535,68 @@ nav {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
   align-items: center;
-
   width: 80%;
   height: 80%;
   margin: 0 auto;
   padding: 20px;
-
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
-
   background: var(--clr-white);
   border-radius: 10px;
   background-image: url(./assets/bg_selectItems.png);
   background-size: cover;
   overflow: auto;
 }
-
+.test__product {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  align-items: center;
+  width: 50%;
+  height: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  background: var(--clr-white);
+  border-radius: 10px;
+  background-image: url(./assets/bg_selectItems.png);
+  background-size: cover;
+  overflow: auto;
+}
+.card__player2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  width: 100%;
+  height: 60%;
+  margin: 0 auto;
+  padding: 20px;
+  position: fixed;
+  top: 40%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+ 
+}
+.card__player1 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  width: 100%;
+  height: 10%;
+  margin: 0 auto;
+  padding: 20px;
+  position: fixed;
+  top: 70%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+ 
+}
 .product__image {
   width: 100%;
   margin: 20px auto;

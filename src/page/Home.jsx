@@ -16,8 +16,14 @@ const Home = () => {
       )
     }
     else {
+      if(playerName == "")
+      {
+        alert ("Please choose the player name")
+      }
+      else {
       socket.emit("set_name_player",playerName)
       navigate('/menu')
+      }
     }
   }
 return (

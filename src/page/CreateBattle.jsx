@@ -39,7 +39,7 @@ useEffect(() => {
         setchoose_card={setchoose_card}
         roomname = {battlename}
         socket = {socket}
-
+        account = {account}
        />) : (waitoppo && <GameLoad/>)}
       <div className='flex flex-col mb-5'>
         <label htmlFor='name' className={styles.label}> Battle Name</label>

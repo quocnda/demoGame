@@ -15,7 +15,6 @@ const Section = ({ title,items_of_sold, items, togglePop,setitem_of_sold_id }) =
                 {items.map((item,index) => (
                     <div className='card' key={index} onClick={() => settoggleandid(index)}>
                         <div className='card__image'>
-                        {console.log(item.image)}
                             <img src={item.image} alt='Item' />
                         </div>
                         <div className='card__info'> 
@@ -24,10 +23,6 @@ const Section = ({ title,items_of_sold, items, togglePop,setitem_of_sold_id }) =
                         </div>
                     </div>
                 ))}
-             
-
-
-
             </div>
         </div>
     );

@@ -3,6 +3,7 @@ import { ethers } from 'ethers'
 
 
 import { close } from '../assets'
+import styles from '../styles'
 
 const Makeitem= ({toggle,settoggle,contract,provider}) => {
   const [hasBought, setHasBought] = useState(false)
@@ -28,17 +29,13 @@ const Makeitem= ({toggle,settoggle,contract,provider}) => {
   }
   return (
     <div className="product">
-        <div className='product__details'>
-          
-          <div className='product__overview'>
-            {/* <h1 > {item.itemId.toString()}</h1> */}
-             </div>
-             <div className='product__order'> 
-                <input type='number' bgcolor="#279aec" placeholder='id of items' value={number} onChange={handleOnClick}  />
-                <input type='number' placeholder='amount of items' value={numberofsold} onChange={handleOnClickSetnumbersold}  />
-                <input type='number' placeholder='price of items' value={price} onChange={handldeOnPrice}  />
+        <div className='test__product'>
+             <div > 
+                <input type='number' className={styles.input} bgcolor="#279aec" placeholder='id of items' value={number} onChange={handleOnClick}  />
+                <input type='number' className={styles.input} placeholder='amount of items' value={numberofsold} onChange={handleOnClickSetnumbersold}  />
+                <input type='number' className={styles.input} placeholder='price of items' value={price} onChange={handldeOnPrice}  />
 
-              <button className='product__buy' onClick={MakeHandler}>
+              <button className= {styles.btn} onClick={MakeHandler}>
                 makeItem
               </button>
               <div>

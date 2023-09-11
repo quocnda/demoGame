@@ -21,6 +21,7 @@ export const GlobalContextProvider = ({ children }) => {
     const[sum_room1,setsum_room] = useState(null)
     const[items_user_count_amount,setitem_user_count_amount] = useState([])
     const[items_user_count_image,setitem_user_count_image] = useState([])
+    const[items_user_details,setitem_user_details] = useState([])
     const LoadDataContract = async ()=> {
         const items_of_sold = []
          const items = []
@@ -40,6 +41,7 @@ export const GlobalContextProvider = ({ children }) => {
         //  const tmp = i+1
         //  const transaction = await contract.makeItem(tmp,20,20)
         //  await transaction.wait()
+        //  console.log("transaction la ", transaction)
         // }
          console.log(contract)
          console.log(contract_of_nft)
@@ -70,16 +72,20 @@ export const GlobalContextProvider = ({ children }) => {
 
        const items_user_count_image  = []
       const items_user_count_amount = []
+      const items_user_details = []
       for( let i =1;i<=10;i++) {
         const item = await contract_of_nft.balanceOf(account,i)
         const item_ = await contract_of_nft.items(i-1) 
         if(item > 0 ) {
           items_user_count_image.push(item_.image)
+          items_user_details.push(item_)
+          console.log("item from index.js",item_)
           items_user_count_amount.push(item.toString())
         }
       }
       setitem_user_count_amount(items_user_count_amount)
       setitem_user_count_image(items_user_count_image)
+      setitem_user_details(items_user_details)
        }
        else {
          console.log("ch cai ")
@@ -147,7 +153,7 @@ export const GlobalContextProvider = ({ children }) => {
     return (
         <GlobalContext.Provider value={{
            provider_of_coin,account,contract_of_coin,provider,setaccount,contract_of_nft,provider_of_nft,items_of_sold,items,contract_from_market,balance_,socket,sum_room1,battleGround,
-          items_user_count_amount,items_user_count_image,
+          items_user_count_amount,items_user_count_image,items_user_details
         }}>
             {children}           
         </GlobalContext.Provider>

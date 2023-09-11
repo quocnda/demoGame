@@ -28,12 +28,13 @@ const PlayerInfo = ({ player, playerIcon, mt }) => (
       data-tip="Mana"
       className={`${styles.flexCenter} ${styles.glassEffect} ${styles.playerMana}`}
     >
-      {player.mana || 0}
+      {console.log("player mana la ", player?.mana)}
+      {player?.mana || 0}
     </div>
 
     <ReactTooltip id={`Player-${mt ? '1' : '2'}`} effect="solid" backgroundColor="#7f46f0">
       <p className={styles.playerInfo}>
-        <span className={styles.playerInfoSpan}>Name:</span> {player?.playerName}
+        <span className={styles.playerInfoSpan}>Name:</span> {player?.name}
       </p>
       <p className={styles.playerInfo}>
         <span className={styles.playerInfoSpan}>Address:</span> {player?.playerAddress?.slice(0, 10)}

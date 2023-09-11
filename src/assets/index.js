@@ -40,6 +40,7 @@ import xho from './Xho.png';
 // logo
 import logo from './logo.svg';
 import close from'./close.svg';
+import LOIKIO from './LOIKIO.png'
 // icon
 import attack from './attack.png';
 import defense from './defense.png';
@@ -127,6 +128,7 @@ export {
 
   logo,
   close,
+  LOIKIO,
 
   attack,
   defense,
