@@ -19,7 +19,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path='/battle-round/:battleName' element={<BattleRound/>}></Route>
       </Routes>
     </GlobalContextProvider>
-    
    </BrowserRouter>
   
 );

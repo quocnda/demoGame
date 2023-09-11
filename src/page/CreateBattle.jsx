@@ -19,7 +19,7 @@ const CreateBattle = () => {
   }
   const ListenTheBattle = () => {
     socket.on("battle_is_connect",(data) => {
-        navigate(`/battle-round/${data}`)
+        navigate(`/battle-round`)
     })
 }
   

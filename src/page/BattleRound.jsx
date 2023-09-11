@@ -20,7 +20,7 @@ const BattleRound = () => {
   const [account_player_1, setaccount_player_1] = useState("")
   const [bool_da_load_game,setbool_da_load_game] = useState(false)
   const [is_end_game,setis_end_game] = useState(false)
-  const LoadName = async () => {
+  const LoadName = () => {
    socket.emit("get_player_data")
     socket.on("card_player", (pedri) => {
       console.log("data la", pedri)
@@ -30,6 +30,8 @@ const BattleRound = () => {
       console.log("account player 2", data[1][1])
       setaccount_player_1(data[0][1])
       setaccount_player_2(data[1][1])
+      console.log("account 1 lka", account_player_1)
+      console.log("account 2", account_player_2)
       const data_card = pedri.data_card
       if (data[0][0] == name) {
         setname_oppo(data[1][0])
@@ -47,8 +49,6 @@ const BattleRound = () => {
         setplayer1({ name: data[1], health: 30, mana: 25 })
         setplayer2({ name: data[0],  health: 30, mana: 25 })
       }
-      console.log("account 1", account_player_1)
-      console.log("account 2", account_player_2)
     })
     console.log("da vao Load Name")
   }
@@ -61,7 +61,8 @@ const BattleRound = () => {
       const signer = provider.getSigner()
       // console.log("signer la", signer)
       const contract = new ethers.Contract(contract_address_Coin, Contract_Coin_ABI, signer)
-      
+      console.log("account 1", account_player_1)
+      console.log("account 2", account_player_2)
       let value = await contract.transferCoinForWinner(account_winner)
       console.log("value :", value)
     }

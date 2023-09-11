@@ -16,7 +16,7 @@ const PageHOC = (Component, title, description) => () => {
                     <p className='font-rajdhani font-normal text-[24px] text-siteWhite head-text'> {description}</p>
                     <Component />
                 </div>
-                <p className={styles.footerText}>From Quoc'Dmoi with love </p>
+                <p className={styles.footerText}> Our passion </p>
             </div>
             <div className='flex flex-1'>
                 <img src={heroImg} alt='hero-img' className='w-full x1:h-full object-cover' />
